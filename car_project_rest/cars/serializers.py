@@ -36,7 +36,7 @@ class CarModelListRetrieveSerializer(ModelSerializer):
 class UserCarPutCreateSerializer(ModelSerializer):
     car_model = PrimaryKeyRelatedField(queryset=CarModel.objects.all(), allow_null=False, required=True)
 
-    # adds the user to the serializer
+    # adds the user from the request to the serializer
     def create(self, validated_data):
         validated_data['user'] = self.context['request'].user
         return super().create(validated_data)

@@ -10,6 +10,7 @@ from car_project_rest.cars.serializers import CarBrandSerializer, CarModelSerial
 
 class CarBrandViewSet(ModelViewSet):
     serializer_class = CarBrandSerializer
+    # Custom typed filter by name
     filterset_fields = ('name',)
     permission_classes = (
         IsAuthenticated,
@@ -35,6 +36,7 @@ class CarBrandViewSet(ModelViewSet):
 
 class CarModelViewSet(ModelViewSet):
     serializer_class = CarModelSerializer
+    # Custom typed filter by name
     filterset_fields = ('name',)
     permission_classes = (
         IsAuthenticated,
@@ -55,6 +57,7 @@ class CarModelViewSet(ModelViewSet):
 
 
 class UserCarViewSet(ModelViewSet):
+    # Custom typed filter by first_reg
     filterset_fields = ('first_reg',)
     permission_classes = (
         IsAuthenticated,
@@ -89,7 +92,7 @@ class CarBrandDeletedViewSet(mixins.DestroyModelMixin, mixins.RetrieveModelMixin
         IsAuthenticated,
     )
     """
-    View that returns only deleted objects, using put method here restores the object
+    View that returns only deleted objects, using the update method restores the object
     """
 
     def get_queryset(self):

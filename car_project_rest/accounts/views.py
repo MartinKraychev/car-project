@@ -13,10 +13,14 @@ UserModel = get_user_model()
 
 
 class LoginView(ObtainAuthToken):
+    """
+    Login view with token authentication.
+    """
     permission_classes = (
         AllowAny,
     )
 
+    # Creates and returns the token
     def post(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)

@@ -6,7 +6,7 @@ from car_project_rest.cars.models import CarBrand, CarModel, UserCar
 
 @admin.register(CarBrand)
 class CarBrandAdmin(ModelAdmin):
-    list_display = ['name',]
+    list_display = ['name', ]
 
 
 @admin.register(CarModel)
