@@ -1,5 +1,5 @@
 # car-project
 
 To test locally:
- - Create VENV
+ - Create venv
  - Install dependencies
