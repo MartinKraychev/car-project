@@ -92,7 +92,8 @@ class CarBrandDeletedViewSet(mixins.DestroyModelMixin, mixins.RetrieveModelMixin
         IsAuthenticated,
     )
     """
-    View that returns only deleted objects, using the update method restores the object
+    View that returns only deleted objects, using the update method restores the object.
+    
     """
 
     def get_queryset(self):
@@ -100,7 +101,7 @@ class CarBrandDeletedViewSet(mixins.DestroyModelMixin, mixins.RetrieveModelMixin
 
         return queryset
 
-    # Executes restore of the car brand and all related models
+    # Executes restore of the car brand and all related car models
 
     def update(self, request, *args, **kwargs):
         instance = self.get_object()
@@ -110,3 +111,7 @@ class CarBrandDeletedViewSet(mixins.DestroyModelMixin, mixins.RetrieveModelMixin
             model.restore()
 
         return Response('Item was restored')
+
+    # Hard delete
+    def destroy(self, request, *args, **kwargs):
+        return super(CarBrandDeletedViewSet, self).destroy(request, *args, **kwargs)
