@@ -47,7 +47,7 @@ Auth:
     - DELETE http://127.0.0.1:8000/cars/user-car/{id}
 
 
-    Filters:
+Filters:
 
 - Car brand by name - GET http://127.0.0.1:8000/cars/brands/?name={name}
 - Car model by name - - GET http://127.0.0.1:8000/cars/models/?name={name}
