@@ -7,12 +7,14 @@ To test locally:
 
 API Calls:
 
-    Auth:
+Auth:
+    
  - register : POST http://127.0.0.1:8000/auth/register/
  - login: POST http://127.0.0.1:8000/auth/login/
    
 
-    Cars:
+ Cars:
+    
 - brands:
 
     - GET http://127.0.0.1:8000/cars/brands/
