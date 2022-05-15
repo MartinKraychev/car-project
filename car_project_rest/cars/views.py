@@ -3,8 +3,9 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet, GenericViewSet
 
+from car_project_rest.cars.filters import ModelFilter, UserCarFilter
 from car_project_rest.cars.models import CarBrand, CarModel, UserCar
-from car_project_rest.cars.serializers import CarBrandSerializer, CarModelSerializer, UserCarPutCreateSerializer, \
+from car_project_rest.cars.serializers import CarBrandSerializer, CarModelSerializer, UserCarCreatePutDeleteSerializer, \
     UserCarListRetrieveSerializer
 
 
@@ -37,7 +38,7 @@ class CarBrandViewSet(ModelViewSet):
 class CarModelViewSet(ModelViewSet):
     serializer_class = CarModelSerializer
     # Custom typed filter by name
-    filterset_fields = ('name',)
+    filterset_class = ModelFilter
     permission_classes = (
         IsAuthenticated,
     )
@@ -58,7 +59,7 @@ class CarModelViewSet(ModelViewSet):
 
 class UserCarViewSet(ModelViewSet):
     # Custom typed filter by first_reg
-    filterset_fields = ('first_reg',)
+    filterset_class = UserCarFilter
     permission_classes = (
         IsAuthenticated,
     )
@@ -69,7 +70,7 @@ class UserCarViewSet(ModelViewSet):
         if self.action == 'list' or self.action == 'retrieve':
             return UserCarListRetrieveSerializer
         else:
-            return UserCarPutCreateSerializer
+            return UserCarCreatePutDeleteSerializer
 
     def get_queryset(self):
         queryset = UserCar.objects.all().order_by('id')

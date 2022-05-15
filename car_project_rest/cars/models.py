@@ -11,7 +11,6 @@ class CarBrand(SoftDeleteModel):
 
     name = models.CharField(
         max_length=CAR_BRAND_NAME_MAX_LENGTH,
-        unique=True,
     )
 
     created_at = models.DateTimeField(auto_now_add=True)
@@ -25,7 +24,6 @@ class CarModel(SoftDeleteModel):
 
     name = models.CharField(
         max_length=CAR_MODEL_NAME_MAX_LENGTH,
-        unique=True,
     )
 
     created_at = models.DateTimeField(auto_now_add=True)
@@ -38,7 +36,7 @@ class CarModel(SoftDeleteModel):
     )
 
     def __str__(self):
-        return f'{self.name} {self.car_brand}'
+        return f'{self.name}'
 
 
 class UserCar(SoftDeleteModel):
@@ -50,6 +48,11 @@ class UserCar(SoftDeleteModel):
 
     car_model = models.ForeignKey(
         CarModel,
+        on_delete=models.CASCADE
+    )
+
+    car_brand = models.ForeignKey(
+        CarBrand,
         on_delete=models.CASCADE
     )
 

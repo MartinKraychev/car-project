@@ -1,11 +1,11 @@
 from django.contrib.auth import get_user_model
 from django.contrib.auth.password_validation import validate_password
-from rest_framework.serializers import ModelSerializer
+from rest_framework import serializers
 
 UserModel = get_user_model()
 
 
-class RegisterSerializer(ModelSerializer):
+class RegisterSerializer(serializers.ModelSerializer):
 
     # Hash the password in the DB and the response
     def create(self, validated_data):

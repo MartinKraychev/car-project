@@ -16,4 +16,4 @@ class CarModelAdmin(ModelAdmin):
 
 @admin.register(UserCar)
 class UserCarAdmin(ModelAdmin):
-    list_display = ['first_reg', 'odometer', 'car_model']
+    list_display = ['first_reg', 'odometer', 'car_model', 'car_brand']
