@@ -46,9 +46,3 @@ Auth:
     - PUT/PATCH http://127.0.0.1:8000/cars/user-car/{id}
     - DELETE http://127.0.0.1:8000/cars/user-car/{id}
 
-
-Filters:
-
-- Car brand by name - GET http://127.0.0.1:8000/cars/brands/?name={name}
-- Car model by name - - GET http://127.0.0.1:8000/cars/models/?name={name}
-- User car by first reg - GET http://127.0.0.1:8000/cars/user-car/?first_reg={first_reg}
