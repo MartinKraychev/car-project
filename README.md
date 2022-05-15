@@ -7,12 +7,14 @@ To test locally:
 
 API Calls:
 
-    Auth:
+Auth:
+    
  - register : POST http://127.0.0.1:8000/auth/register/
  - login: POST http://127.0.0.1:8000/auth/login/
    
 
-    Cars:
+ Cars:
+    
 - brands:
 
     - GET http://127.0.0.1:8000/cars/brands/
@@ -45,7 +47,7 @@ API Calls:
     - DELETE http://127.0.0.1:8000/cars/user-car/{id}
 
 
-    Filters:
+Filters:
 
 - Car brand by name - GET http://127.0.0.1:8000/cars/brands/?name={name}
 - Car model by name - - GET http://127.0.0.1:8000/cars/models/?name={name}
