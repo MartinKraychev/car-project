@@ -1,4 +1,8 @@
-# car-project
+# Django REST API demo project for cars
+### Contains CarBrand, CarModel, UserCar and extended User models. All Models have soft delete implementation. 
+### drf-yasg is used for OpenAPI and django-filter for custom queries.
+
+
 
 To test locally:
  - Create venv
